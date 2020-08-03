@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { handleSubmit } from './actions'
+import { handleSubmit, sendData } from './actions'
 import './JoinRoom.scss';
 
 function JoinRoom() {
@@ -15,7 +15,7 @@ function JoinRoom() {
     })
 
     useEffect(() => {
-        console.log(Values);
+        if(Values.chatRoomNumber!==null)sendData(Values.name,Values.chatRoomNumber);
     }, [Values])
 
     return (

@@ -1,3 +1,6 @@
+import Axios from 'axios';
+
+
 /**
  * 
  * @param { string } name name entered by the user
@@ -10,3 +13,8 @@ export const handleSubmit = (name, chatRoomNumber, setState) => {
 }
 
 
+export const sendData = (name, chatRoomNumber) => {
+    Axios.post(`http://localhost:8080/join/${name}`)
+        .then(data => console.log(data))
+
+}
