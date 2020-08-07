@@ -9,12 +9,21 @@ import { createSocket } from './Sockets';
 export const handleSubmit = (name, chatroomNumber, setState, connection) => {
     console.log("Submitted");
     createSocket(name, chatroomNumber, connection);
+    
 
 }
 
 // export const messageSent(data){
 
 // }
+
+// export function dataReceived(data) {
+//     return ({
+//         type:"received",
+//         data
+//     })
+// }
+
 
 export const sendData = (name, chatRoomNumber) => {
     Axios.post(`http://localhost:8080/join/${name}`)
