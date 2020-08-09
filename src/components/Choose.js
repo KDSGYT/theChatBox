@@ -11,9 +11,7 @@ function Choose({ render }) {
         <div className="buttons">
             <Link to={`/create-room`}><Button value={"Create Room"} /></Link>
             <Link to={`/join-room`}><Button value={"Join Room"} /></Link>
-
         </div>
-
     );
 }
 

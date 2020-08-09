@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import Choose from './components/Choose'
 import CreateRoom from './components/views/createRoom/CreateRoom';
 import JoinRoom from "./components/views/joinRoom/JoinRoom";
-
+import Chatroom from './components/views/chatbox/Chatroom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const socket = io('http://localhost:8080');
@@ -24,20 +24,26 @@ function App() {
 
         <Router >
           <Switch>
+          
             <Route exact path={`/`}>
               <Choose />
             </Route>
+
             <Route path="/join-room">
               <JoinRoom
                 connected={isConnected}
                 changeConnection={setIsConnected}
-                // setValues={setValues}
-
-
               />
             </Route>
+          
             <Route path="/create-room">
               <CreateRoom />
+            </Route>
+          
+            <Route path="/chat-room" >
+              <Chatroom
+                socket={socket}
+              />
             </Route>
           </Switch>
         </Router>

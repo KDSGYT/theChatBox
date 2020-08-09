@@ -1,24 +1,44 @@
-import React, {  useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { handleSubmit } from './actions'
 import Button from './../../misc/Button'
+import { Link } from 'react-router-dom'
 import './JoinRoom.scss';
 
-function JoinRoom({ changeConnection, setValues}) {
+function JoinRoom({ changeConnection }) {
 
 
 
-    let nameInput = useRef(null);
-    let chatRoomNumber = useRef(null);
+    const nameInput = useRef(null);
+    const chatRoomNumber = useRef(null);
 
-    // const [Values, setValues] = useState({
-    //     name: "",
-    //     chatRoomNumber: null
-    // })
+
+
+    const [Values, setValues] = useState({
+        name: "",
+        chatRoomNumber: null
+    })
 
     function joinRoom(e) {
+        let name = nameInput.current.value;
+        let room = chatRoomNumber.current.value;
         e.preventDefault();
-        handleSubmit(nameInput.current.value, chatRoomNumber.current.value, setValues, changeConnection)
+        handleSubmit(name, room, setValues, changeConnection)
     }
+
+    function handleChange(){
+        setValues({
+            name: nameInput.current.value,
+            chatRoomNumber: chatRoomNumber.current.value
+        })
+    }
+
+    useEffect(() =>{
+        setValues({
+            name: nameInput.current.value,
+            chatRoomNumber: chatRoomNumber.current.value
+        })
+    },[nameInput, chatRoomNumber])
+
 
     // useEffect(() => {
     //     if (Values.chatRoomNumber !== null) sendData(Values.name, Values.chatRoomNumber);
@@ -26,10 +46,15 @@ function JoinRoom({ changeConnection, setValues}) {
 
     return (
         <section className="JoinRoom">
-            <form className="JoinRoom-form" onSubmit={joinRoom }>
-                <input type="text" placeholder="Name" ref={nameInput} required />
-                <input type="text" placeholder="Room Code" ref={chatRoomNumber} required />
-                <Button type={"submit"} value={"Join"} />
+            <form style={{ animation: " show 1s ease" }} className="JoinRoom-form" onSubmit={joinRoom}>
+
+                <input type="text" onChange={handleChange} placeholder="Name" ref={nameInput} required />
+
+                <input type="text" onChange={handleChange} placeholder="Room Code" ref={chatRoomNumber} required />
+                <Link to={`/chat-room?name=${Values.name}`}>
+                    <Button type={"submit"} value={"Join"} />
+
+                </Link>
             </form>
         </section>
     );

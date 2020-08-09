@@ -28,15 +28,20 @@
         }
 
         .chatDisplay {
+            font-size: 1.4rem;
+
             // padding:10px;
             margin: 0 auto;
             background: #3b3b3b;
             height: 87%;
             width: 98%;
+            // transition: all ease-in;
+            // animation: appear 1s;
 
             .received-message {
                 float: left;
                 display: block;
+                width: 100%;
                 text-align: left;
 
                 span {
@@ -53,7 +58,6 @@
         }
 
         form{
-            // border:2px solid black;
             #chat-input {
                 border: none;
                 width: 93%;
@@ -70,3 +74,13 @@
 
     }
 }
+
+
+// @keyframes appear{
+//     0%{
+//         opacity:0;
+//     }
+//     100%{
+//         opacity: 1;
+//     }
+// }

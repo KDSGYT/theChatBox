@@ -1,14 +1,14 @@
 .JoinRoom {
-    // border: 2px solid black;
     width: 60vw;
     height: 60vw;
     min-width: 60vw;
     min-height: 60vh;
     max-height: 80vh;
     margin: auto;
+    // transition: all 1s ease-in;
     .JoinRoom-form {
-        margin: auto;
-        // border: 2px solid black;
+
+        position: relative;
         margin: auto;
         height: 100%;
         display: flex;
@@ -40,9 +40,23 @@
             }
         }
         input[type="submit"]{
-            height:7%;
+            // border:2px solid black;
+            height:100%;
         }
         
         
+    }
+}
+
+
+@keyframes show{
+    0%{
+
+        opacity:0;
+        right:-20%
+    }
+    100%{
+        opacity: 1;
+        right:0;
     }
 }

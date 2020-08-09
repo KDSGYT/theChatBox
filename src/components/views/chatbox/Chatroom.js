@@ -1,8 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import io from 'socket.io-client';
 
 import './Chatroom.scss';
-function Chatroom({ Values, changeConnection ,socket}) {
+
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+  }
+
+function Chatroom({ changeConnection ,socket}) {
 
     // function sendText(){}
 
@@ -48,8 +54,6 @@ function Chatroom({ Values, changeConnection ,socket}) {
     }
 
     useEffect(() => {
-       
-
 
         socket.on('connect', () => {
             console.log("connected:", socket.id)
@@ -57,11 +61,11 @@ function Chatroom({ Values, changeConnection ,socket}) {
             changeConnection(true);
         });
 
-
         socket.on('disconnect', () => {
             // connection(false) un commenting this will create an error
             console.log("disconnected", socket.id);
         })
+
         socket.on('messageReceived', (data) => {
             console.log(data);
             dataReceived(data);
@@ -70,19 +74,21 @@ function Chatroom({ Values, changeConnection ,socket}) {
         return () => {
             socket.off('connect');
             socket.off('disconnect');
-            socket.off('message');
+            socket.off('messageReceived');
           };
     })
     useEffect(() => {
         console.log(chat)
     }, [chat])
 
+    const query = useQuery();
+
     return (
         <div className="chatroom">
             <div className="chatWindow">
                 <div className="chatHeader">
                     {/* <h6> Welcome {Values.name || "KDSG"} !! to {Values.chatroomNumber || "Placeholder Number"}</h6> */}
-                    Room: {Values.chatroomNumber || "1234"}
+                    Welcome { query.get("name") || "Placeholder"}!
                 </div>
                 <div className="chatDisplay">
                     {chat.map((msg, index) => {
