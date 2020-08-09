@@ -9,6 +9,7 @@ const socket = io('http://localhost:8080');
 function App() {
   const [isConnected, setIsConnected] = useState(socket.connected);
   const [Values, setValues] = useState({ name: null, chatroomNumber: null })
+  
   const child = !isConnected
     ? <JoinRoom
       changeConnection={setIsConnected}
@@ -25,8 +26,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {child}
-        {/* <Choose /> */}
+        {/* {child} */}
+        <Choose />
       </header>
     </div>
   );

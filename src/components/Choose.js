@@ -2,14 +2,15 @@ import React from 'react';
 import CreateRoom from './views/createRoom/CreateRoom';
 import JoinRoom from './views/joinRoom/JoinRoom';
 
-import Button from './misc/Button'
+import Button from './misc/Button';
+import './Choose.scss';
 
 function Choose() {
     return (
-        <React.Fragment>
+        <div className="buttons">
             <Button value={"Create Room"} />
-            <Button Value={"Join Room"} />
-        </React.Fragment>
+            <Button value={"Join Room"} />
+        </div>
     )
 }
 

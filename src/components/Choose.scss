@@ -1,0 +1,12 @@
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    &:first-child, &:nth-child(2){
+        height: 10vw;
+        &:only-child{
+            width: 70%;
+        }
+    }
+
+}
