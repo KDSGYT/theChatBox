@@ -6,7 +6,7 @@ import io from 'socket.io-client';
 
 export function createSocket(name, chatroomNumber, connection) {
 
-    connection(true);
+    connection(true);  
 //     const socket = io('http://localhost:8080');
 
 //     socket.on('connect', () => {

@@ -1,6 +1,7 @@
 const app = require('express')();
 const http = require('http').createServer(app);
 const PORT = process.env.PORT || 8080;
+
 const io = require('socket.io')(http, {
     handlePreflightRequest: (req, res) => {
         const headers = {
@@ -39,7 +40,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on('disconnect', () => {
-        console.log("disconnected",socket.id);
+        console.log("disconnected", socket.id);
     })
 })
 

@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { handleSubmit, sendData } from './actions'
+import React, {  useRef } from 'react';
+import { handleSubmit } from './actions'
+import Button from './../../misc/Button'
 import './JoinRoom.scss';
 
 function JoinRoom({ changeConnection, setValues }) {
@@ -28,8 +29,7 @@ function JoinRoom({ changeConnection, setValues }) {
             <form className="JoinRoom-form" onSubmit={joinRoom }>
                 <input type="text" placeholder="Name" ref={nameInput} required />
                 <input type="text" placeholder="Room Code" ref={chatRoomNumber} required />
-                <input type="Submit" value="Join" readOnly />
-
+                <Button value={"Join"} />
             </form>
         </section>
     );

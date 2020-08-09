@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
-import JoinRoom from './components/JoinRoom';
+import JoinRoom from './components/views/joinRoom/JoinRoom';
 import Chatroom from './components/views/chatbox/Chatroom';
 import io from 'socket.io-client';
-
+import Choose from './components/Choose'
 const socket = io('http://localhost:8080');
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         {child}
+        {/* <Choose /> */}
       </header>
     </div>
   );

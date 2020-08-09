@@ -1,0 +1,16 @@
+input[type="submit"]{
+    border-radius: 2px;
+    height:7%;
+    background: none;
+    background-color: green;
+    margin: 0 auto;
+    color:white;
+    font-size: large;
+    border:none;
+    // margin: auto;
+    width: 20%;
+    &:hover{
+        color:black;
+        background-color: white;
+    }
+}
