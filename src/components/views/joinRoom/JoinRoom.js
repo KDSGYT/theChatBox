@@ -3,7 +3,7 @@ import { handleSubmit } from './actions'
 import Button from './../../misc/Button'
 import './JoinRoom.scss';
 
-function JoinRoom({ changeConnection, setValues, render }) {
+function JoinRoom({ changeConnection, setValues}) {
 
 
 

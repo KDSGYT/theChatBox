@@ -11,11 +11,9 @@ const socket = io('http://localhost:8080');
 
 function App() {
 
-  // const [isConnected, setIsConnected] = useState(socket.connected);
-  // const [Values, setValues] = useState({ name: null, chatroomNumber: null })
+  const [isConnected, setIsConnected] = useState(socket.connected);
+  const [Values, setValues] = useState({ name: null, chatroomNumber: null })
   // <JoinRoom
-  //   changeConnection={setIsConnected}
-  //   setValues={setValues}
 
   // />
 
@@ -30,7 +28,12 @@ function App() {
               <Choose />
             </Route>
             <Route path="/join-room">
-              <JoinRoom />
+              <JoinRoom
+                changeConnection={setIsConnected}
+                setValues={setValues}
+
+
+              />
             </Route>
             <Route path="/create-room">
               <CreateRoom />
