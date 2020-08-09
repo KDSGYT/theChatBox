@@ -2,9 +2,10 @@ import { render } from 'node-sass'
 import React from 'react'
 import './Button.scss'
 
-function Button({ value }) {
+
+function Button({ value, type="button" }) {
     return (
-        <input type="Submit" value={value} readOnly />
+        <input type={type}  className="button-misc"value={value} readOnly />
     )
 }
 

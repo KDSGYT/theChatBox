@@ -1,17 +1,20 @@
-// import React from 'react';
-// // import CreateRoom from './views/createRoom/CreateRoom';
-// // import JoinRoom from './views/joinRoom/JoinRoom';
 
-// import Button from './misc/Button'
-// import './Choose.scss';
+import React from "react";
+import { Link } from 'react-router-dom';
 
-// function Choose() {
-//     return (
-//         <div className="buttons">
-//             <Button value={"Create Room"} />
-//             <Button Value={"Join Room"} />
-//         </div>
-//     )
-// }
+import Button from "./misc/Button";
+import "./Choose.scss";
 
-// export default Choose;
+function Choose({ render }) {
+
+    return (
+        <div className="buttons">
+            <Link to={`/create-room`}><Button value={"Create Room"} /></Link>
+            <Link to={`/join-room`}><Button value={"Join Room"} /></Link>
+
+        </div>
+
+    );
+}
+
+export default Choose;
