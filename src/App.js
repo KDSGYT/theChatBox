@@ -1,35 +1,42 @@
 import React, { useState } from 'react';
 import './App.css';
-import JoinRoom from './components/views/joinRoom/JoinRoom';
-import Chatroom from './components/views/chatbox/Chatroom';
 import io from 'socket.io-client';
 import Choose from './components/Choose'
+import CreateRoom from './components/views/createRoom/CreateRoom';
+import JoinRoom from "./components/views/joinRoom/JoinRoom";
+
+import { BrowserRouter as Router, Route, Link, Switch, useRouteMatch } from 'react-router-dom';
+
 const socket = io('http://localhost:8080');
 
 function App() {
-  const [isConnected, setIsConnected] = useState(socket.connected);
-  const [Values, setValues] = useState({ name: null, chatroomNumber: null })
-  
-  const child = !isConnected
-    ? <JoinRoom
-      changeConnection={setIsConnected}
-      setValues={setValues}
-      
-    />
-    : <Chatroom
-        socket={socket}
-        Values={Values}
-        changeConnection={setIsConnected}
+  // const [isConnected, setIsConnected] = useState(socket.connected);
+  // const [Values, setValues] = useState({ name: null, chatroomNumber: null })
+  // <JoinRoom
+  //   changeConnection={setIsConnected}
+  //   setValues={setValues}
 
-    />
+  // />
 
   return (
     <div className="App">
       <header className="App-header">
-        {/* {child} */}
-        <Choose />
+        <Router >
+          <Switch>
+            <Route exact path={`/`}>
+              <Choose />
+            </Route>
+            <Route path="/join-room">
+              <JoinRoom />
+            </Route>
+            <Route path="/create-room">
+              <CreateRoom />
+            </Route>
+          </Switch>
+        </Router>
       </header>
     </div>
+
   );
 }
 

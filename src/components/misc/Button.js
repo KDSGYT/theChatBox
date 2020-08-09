@@ -1,9 +1,9 @@
 import React from 'react'
 import './Button.scss'
 
-function Button({ value, render }) {
+function Button({ value, type="button" }) {
     return (
-        <input type="Submit" onClick={() => render} value={value} readOnly />
+        <input type={type}  className="button-misc"value={value} readOnly />
     )
 }
 

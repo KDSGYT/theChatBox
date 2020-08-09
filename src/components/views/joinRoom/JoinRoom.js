@@ -3,7 +3,7 @@ import { handleSubmit } from './actions'
 import Button from './../../misc/Button'
 import './JoinRoom.scss';
 
-function JoinRoom({ changeConnection, setValues }) {
+function JoinRoom({ changeConnection, setValues, render }) {
 
 
 
@@ -29,7 +29,7 @@ function JoinRoom({ changeConnection, setValues }) {
             <form className="JoinRoom-form" onSubmit={joinRoom }>
                 <input type="text" placeholder="Name" ref={nameInput} required />
                 <input type="text" placeholder="Room Code" ref={chatRoomNumber} required />
-                <Button value={"Join"} />
+                <Button type={"submit"} value={"Join"} />
             </form>
         </section>
     );
