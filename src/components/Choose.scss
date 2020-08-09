@@ -6,11 +6,9 @@
     &:first-child,
     &:nth-child(2) {
 
-        border: 2px solid black;
-
         &:first-child,
         &:nth-child(2) {
-            border: 2px solid white;
+            // border: 2px solid white;
             height: 10vw;
 
             &:only-child {

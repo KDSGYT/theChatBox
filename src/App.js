@@ -5,14 +5,14 @@ import Choose from './components/Choose'
 import CreateRoom from './components/views/createRoom/CreateRoom';
 import JoinRoom from "./components/views/joinRoom/JoinRoom";
 
-import { BrowserRouter as Router, Route, Link, Switch, useRouteMatch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const socket = io('http://localhost:8080');
 
 function App() {
 
   const [isConnected, setIsConnected] = useState(socket.connected);
-  const [Values, setValues] = useState({ name: null, chatroomNumber: null })
+  // const [Values, setValues] = useState({ name: null, chatroomNumber: null })
   // <JoinRoom
 
   // />
@@ -29,8 +29,9 @@ function App() {
             </Route>
             <Route path="/join-room">
               <JoinRoom
+                connected={isConnected}
                 changeConnection={setIsConnected}
-                setValues={setValues}
+                // setValues={setValues}
 
 
               />
