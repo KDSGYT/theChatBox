@@ -13,23 +13,6 @@ const io = require('socket.io')(http, {
         res.end();
     }
 });
-/**
-     * const CORS = require('cors')()
-
-    app.use(CORS);
-    app.get('/', (req, res) => {
-        res.redirect('/api');
-    })
-
-    app.get('/api', (req, res) => {
-        res.send("<h1>KDSG</h1>")
-    })
-
-    app.post('/join/:name', (req, res) => {
-        console.log(req.params.name);
-        res.send("data has been received");
-    })
- */
 
 
 io.on('connection', (socket) => {
@@ -37,6 +20,18 @@ io.on('connection', (socket) => {
     socket.on('messageSent', (data) => {
         console.log(data)
         socket.broadcast.emit('messageReceived', data)
+    })
+
+    socket.on('create-room',() =>{
+        socket.join('room', () => {
+            // console.log();
+            let rooms = Object.keys(socket.rooms)
+            console.log(rooms);
+        })
+    })
+
+    socket.on('joing-room', () => {
+        socket.join('room')
     })
 
     socket.on('disconnect', () => {

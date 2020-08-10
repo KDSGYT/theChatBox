@@ -4,7 +4,7 @@ import Button from './../../misc/Button'
 import { Link } from 'react-router-dom'
 import './JoinRoom.scss';
 
-function JoinRoom({ changeConnection }) {
+function JoinRoom({  socket }) {
 
 
 
@@ -22,7 +22,10 @@ function JoinRoom({ changeConnection }) {
         let name = nameInput.current.value;
         let room = chatRoomNumber.current.value;
         e.preventDefault();
-        handleSubmit(name, room, setValues, changeConnection)
+        socket.emit('join-room', (some) =>{
+            console.log(some)
+        })
+        // handleSubmit(name, room, setValues, changeConnection)
     }
 
     function handleChange(){
@@ -48,9 +51,9 @@ function JoinRoom({ changeConnection }) {
         <section className="JoinRoom">
             <form style={{ animation: " show 1s ease" }} className="JoinRoom-form" onSubmit={joinRoom}>
 
-                <input type="text" onChange={handleChange} placeholder="Name" ref={nameInput} required />
+                <input type="text" onChange={handleChange} placeholder="Name" ref={nameInput} required autoComplete="off"/>
 
-                <input type="text" onChange={handleChange} placeholder="Room Code" ref={chatRoomNumber} required />
+                <input type="text" onChange={handleChange} placeholder="Room Code" ref={chatRoomNumber} required autoComplete="off"/>
                 <Link to={`/chat-room?name=${Values.name}`}>
                     <Button type={"submit"} value={"Join"} />
 

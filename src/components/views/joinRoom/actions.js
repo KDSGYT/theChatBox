@@ -1,5 +1,4 @@
 import Axios from 'axios';
-import { createSocket } from './Sockets';
 /**
  * 
  * @param { string } name name entered by the user
@@ -8,9 +7,6 @@ import { createSocket } from './Sockets';
  */
 export const handleSubmit = (name, chatroomNumber, setState, connection) => {
     console.log("Submitted");
-    createSocket(name, chatroomNumber, connection);
-    
-
 }
 
 // export const messageSent(data){

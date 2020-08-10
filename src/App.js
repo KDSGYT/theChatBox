@@ -26,18 +26,26 @@ function App() {
           <Switch>
           
             <Route exact path={`/`}>
-              <Choose />
+              <Choose
+               
+                
+              />
             </Route>
 
             <Route path="/join-room">
               <JoinRoom
                 connected={isConnected}
                 changeConnection={setIsConnected}
+                socket={socket}
+
               />
             </Route>
           
             <Route path="/create-room">
-              <CreateRoom />
+              <CreateRoom 
+                socket={socket}
+
+              />
             </Route>
           
             <Route path="/chat-room" >
