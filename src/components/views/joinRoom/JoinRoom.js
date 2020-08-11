@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { handleSubmit } from './actions'
 import Button from './../../misc/Button'
 import { Link } from 'react-router-dom'
 import './JoinRoom.scss';
@@ -19,8 +18,6 @@ function JoinRoom({  socket }) {
     })
 
     function joinRoom(e) {
-        let name = nameInput.current.value;
-        let room = chatRoomNumber.current.value;
         e.preventDefault();
         socket.emit('join-room', (some) =>{
             console.log(some)
