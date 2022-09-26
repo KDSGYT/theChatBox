@@ -25,12 +25,12 @@ function App() {
         <Router >
           <Switch>
           
-            <Route exact path={`/`}>
+            {/* <Route exact path={`/`}>
               <Choose
                
                 
               />
-            </Route>
+            </Route> */}
 
             <Route path="/join-room">
               <JoinRoom
@@ -48,7 +48,7 @@ function App() {
               />
             </Route>
           
-            <Route path="/chat-room" >
+            <Route path="/" >
               <Chatroom
                 socket={socket}
               />
